@@ -1,19 +1,12 @@
 {
     "app-id": "org.stellarium.Stellarium",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.11",
+    "runtime-version": "5.12",
     "sdk": "org.kde.Sdk",
     "command": "stellarium",
     "rename-icon": "stellarium",
     "rename-appdata-file": "stellarium.appdata.xml",
     "rename-desktop-file": "stellarium.desktop",
-    "build-options": {
-        "cflags": "-O2 -g",
-        "cxxflags": "-O2 -g",
-        "env": {
-            "V": "1"
-        }
-    },
     "finish-args": [
         "--socket=x11",
         "--share=ipc",
@@ -33,6 +26,7 @@
             "name": "stellarium",
             "buildsystem": "cmake-ninja",
             "config-opts": [
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
                 "-DENABLE_MEDIA=1",
                 "-DENABLE_GPS=1"
             ],
