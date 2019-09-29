@@ -26,7 +26,7 @@
             "name": "stellarium",
             "buildsystem": "cmake-ninja",
             "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
                 "-DENABLE_MEDIA=1",
                 "-DENABLE_GPS=1"
             ],
