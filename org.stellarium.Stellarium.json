@@ -26,15 +26,15 @@
             "name": "stellarium",
             "buildsystem": "cmake-ninja",
             "config-opts": [
-                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                "-DCMAKE_BUILD_TYPE=Release",
                 "-DENABLE_MEDIA=1",
                 "-DENABLE_GPS=1"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/Stellarium/stellarium/releases/download/v0.19.1/stellarium-0.19.1.tar.gz",
-                    "sha256": "0f25ad2acb59b75a49568c82123219aed5a14252c2ef39d0444540057d2cfb68"
+                    "url": "https://github.com/Stellarium/stellarium/releases/download/v0.19.2/stellarium-0.19.2.tar.gz",
+                    "sha256": "e4d005c5473e3be15b3101585e8959f422437147a602b1649e4aba22a92e6081"
                 }
             ]
         }
