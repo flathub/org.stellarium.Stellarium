@@ -1,7 +1,7 @@
 {
     "app-id": "org.stellarium.Stellarium",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.12",
+    "runtime-version": "5.13",
     "sdk": "org.kde.Sdk",
     "command": "stellarium",
     "rename-icon": "stellarium",
@@ -26,7 +26,7 @@
             "name": "stellarium",
             "buildsystem": "cmake-ninja",
             "config-opts": [
-                "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+                "-DCMAKE_BUILD_TYPE=Release",
                 "-DENABLE_MEDIA=1",
                 "-DENABLE_GPS=1"
             ],
