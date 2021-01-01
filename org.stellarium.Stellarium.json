@@ -29,14 +29,19 @@
                 "-DENABLE_GPS=1",
                 "-DENABLE_NLS=0"
             ],
-            "post-install": [
-                "install -D -m644 org.stellarium.Stellarium.appdata.xml /app/share/appdata/org.stellarium.Stellarium.appdata.xml"
+            "build-commands": [
+                "mkdir -p ${FLATPAK_DEST}/share/appdata",
+                "install -Dm644 org.stellarium.Stellarium.appdata.xml ${FLATPAK_DEST}/share/appdata"
             ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://github.com/Stellarium/stellarium/releases/download/v0.20.4/stellarium-0.20.4.tar.gz",
                     "sha256": "63033bb6ad01b5f021689766b2a09a99bcabcfec57a710e46a93c40a32fda388"
+                },
+                {
+                    "type": "file",
+                    "path": "org.stellarium.Stellarium.appdata.xml"
                 }
             ]
         }
