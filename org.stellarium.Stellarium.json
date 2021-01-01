@@ -5,7 +5,6 @@
     "sdk": "org.kde.Sdk",
     "command": "stellarium",
     "rename-icon": "stellarium",
-    "rename-appdata-file": "org.stellarium.Stellarium.appdata.xml",
     "finish-args": [
         "--socket=x11",
         "--share=ipc",
