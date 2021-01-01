@@ -29,6 +29,9 @@
                 "-DENABLE_GPS=1",
                 "-DENABLE_NLS=0"
             ],
+            "post-install": [
+                "install -D -m644 org.stellarium.Stellarium.appdata.xml /app/share/appdata/org.stellarium.Stellarium.appdata.xml"
+            ],
             "sources": [
                 {
                     "type": "archive",
