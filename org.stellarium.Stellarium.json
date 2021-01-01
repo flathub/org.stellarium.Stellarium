@@ -26,8 +26,7 @@
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DENABLE_MEDIA=1",
-                "-DENABLE_GPS=1",
-                "-DENABLE_NLS=0"
+                "-DENABLE_GPS=1"
             ],
             "build-commands": [
                 "mkdir -p ${FLATPAK_DEST}/share/appdata",
