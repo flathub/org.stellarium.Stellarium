@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/Stellarium/stellarium/releases/download/v0.21.3/stellarium-0.21.3.tar.gz",
-                    "sha256": "8ac6c054d12f136fe0d5c0deaaa8d7b69dd2a462be1711a187364574aef97e7f"
+                    "url": "https://github.com/Stellarium/stellarium/releases/download/v0.22.0/stellarium-0.22.0.tar.gz",
+                    "sha256": "0b4dc23cf9054b5e76cd9bc5ad68e172eb221999e90af37e93667d04fe78c885"
                 },
                 {
                     "type": "file",
