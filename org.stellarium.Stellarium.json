@@ -25,6 +25,7 @@
             "buildsystem": "cmake-ninja",
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
+                "-DUSE_PLUGIN_TELESCOPECONTROL=0",
                 "-DENABLE_MEDIA=1",
                 "-DENABLE_GPS=1"
             ],
