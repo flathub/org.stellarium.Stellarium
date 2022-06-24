@@ -29,10 +29,6 @@
                 "-DENABLE_MEDIA=1",
                 "-DENABLE_GPS=1"
             ],
-            "build-commands": [
-                "mkdir -p ${FLATPAK_DEST}/share/appdata",
-                "install -Dm644 org.stellarium.Stellarium.appdata.xml ${FLATPAK_DEST}/share/appdata"
-            ],
             "sources": [
                 {
                     "type": "archive",
