@@ -33,10 +33,6 @@
                     "type": "archive",
                     "url": "https://github.com/Stellarium/stellarium/releases/download/v0.22.1/stellarium-0.22.1.tar.gz",
                     "sha256": "61a595ecc345dcc7517359573d0dc772e67ecaf6d52fefab142a77c92cf3fa24"
-                },
-                {
-                    "type": "file",
-                    "path": "org.stellarium.Stellarium.appdata.xml"
                 }
             ]
         }
