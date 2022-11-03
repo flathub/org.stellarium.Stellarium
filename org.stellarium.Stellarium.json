@@ -1,7 +1,7 @@
 {
     "app-id": "org.stellarium.Stellarium",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-21.08",
+    "runtime-version": "6.4",
     "sdk": "org.kde.Sdk",
     "command": "stellarium",
     "rename-icon": "stellarium",
@@ -25,16 +25,214 @@
             "name": "stellarium",
             "buildsystem": "cmake-ninja",
             "config-opts": [
+                "-DENABLE_QT6=1",
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DENABLE_MEDIA=1",
+                "-DCPM_USE_LOCAL_PACKAGES=yes",
                 "-DENABLE_GPS=1",
-                "-DENABLE_SHOWMYSKY=0"
+                "-DENABLE_SHOWMYSKY=ON"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/Stellarium/stellarium/releases/download/v1.0/stellarium-1.0.tar.gz",
-                    "sha256": "5a1912c1c1eb04b22128c6fc98935e87f9faa3844796285b01418139b5d5f33f"
+                    "url": "https://github.com/Stellarium/stellarium/releases/download/v1.1/stellarium-1.1.1.tar.gz",
+                    "sha256": "d2844eae0b62761a04fe04324f65f43d852c590d3249f287e181701822e3766e"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "QXlsx",
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_BUILD_TYPE=Release"
+                    ],
+                    "subdir": "QXlsx/",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.4.zip",
+                            "sha256": "3efbd6f63a1ffd521c535dce7b5a5a7e9ebd23db51e6ae8e3e2eb89796e57675"
+                        }
+                    ]
+                },
+                {
+                    "name": "indi",
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_BUILD_TYPE=Release",
+                        "-DCMAKE_INSTALL_PREFIX=/app",
+                        "-DUDEVRULES_INSTALL_DIR=/app/lib/udev/rules.d",
+                        "-DCMAKE_C_FLAGS=-ffat-lto-objects",
+                        "-DCMAKE_CXX_FLAGS=-ffat-lto-objects -Wp,-U_GLIBCXX_ASSERTIONS"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/indilib/indi/archive/v1.9.8.zip",
+                            "sha256": "15d50e377438c18a4a36a7443c8c73b4c191e09669ca3eb3c478800f2b47b7e8"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "name": "libnova",
+                            "buildsystem": "simple",
+                            "build-commands": [
+                                "autoreconf -vif",
+                                "./configure --disable-static --prefix /app",
+                                "make all install PREFIX=/app"
+                            ],
+                            "sources": [
+                                {
+                                    "type": "archive",
+                                    "url": "https://downloads.sourceforge.net/libnova/libnova-0.15.0.tar.gz",
+                                    "sha256": "7c5aa33e45a3e7118d77df05af7341e61784284f1e8d0d965307f1663f415bb1"
+                                }
+                            ]
+                        },
+                        "shared-modules/libusb/libusb.json",
+                        {
+                            "name": "gsl",
+                            "sources": [
+                                {
+                                    "type": "archive",
+                                    "url": "https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz",
+                                    "sha256": "dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "cfitsio",
+                            "sources": [
+                                {
+                                    "type": "archive",
+                                    "url": "http://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.0.0.tar.gz",
+                                    "sha256": "b2a8efba0b9f86d3e1bd619f662a476ec18112b4f27cc441cc680a4e3777425e"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "libev",
+                            "config-opts": [
+                                "--disable-static",
+                                "--with-pic"
+                            ],
+                            "sources": [
+                                {
+                                    "type": "archive",
+                                    "url": "https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libev/1:4.33-1/libev_4.33.orig.tar.gz",
+                                    "sha256": "507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "CalcMySky",
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DQT_VERSION=6"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/10110111/CalcMySky/archive/refs/tags/v0.2.1.tar.gz",
+                            "sha256": "5e2290152424d358b1e8b3f31144fcf0f6e076520dd7c4dfc6b7b36cac91cde2"
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "name": "glm",
+                            "buildsystem": "cmake-ninja",
+                            "config-opts": [
+                                "-DCMAKE_INSTALL_PREFIX=/app",
+                                "-DCMAKE_INSTALL_LIBDIR=lib"
+                            ],
+                            "sources": [
+                                {
+                                    "type": "git",
+                                    "url": "https://github.com/g-truc/glm.git",
+                                    "commit": "fc8f4bb442b9540969f2f3f351c4960d91bca17a"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "eigen",
+                            "buildsystem": "cmake-ninja",
+                            "builddir": true,
+                            "sources": [
+                                {
+                                    "type": "git",
+                                    "url": "https://gitlab.com/libeigen/eigen.git",
+                                    "commit": "886aad136111eeeb7604e1d17f62efcc4d824568"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "qt6-multimedia",
+                    "buildsystem": "cmake-ninja",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.qt.io/official_releases/qt/6.4/6.4.0/submodules/qtmultimedia-everywhere-src-6.4.0.tar.xz",
+                            "sha256": "e82e8e847cae2a951a11db05b6d10a22b21e3a1d72e06a7781cce4bd197e796f"
+                        }
+                    ]
+                },
+                {
+                    "name": "qt6-webengine",
+                    "buildsystem": "cmake-ninja",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.qt.io/official_releases/qt/6.4/6.4.0/submodules/qtwebengine-everywhere-src-6.4.0.tar.xz",
+                            "sha256": "662ae9ec599b00e902e2c2751ae4977fa95bedf1b035033547ea1b1b69e75303"
+                        }
+                    ]
+                },
+                {
+                    "name": "qt6-charts",
+                    "buildsystem": "cmake-ninja",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.qt.io/official_releases/qt/6.4/6.4.0/submodules/qtcharts-everywhere-src-6.4.0.tar.xz",
+                            "sha256": "28c3cace24515bdafe762174272281aebc97c136cb722eded964cd0ddb3940d3"
+                        }
+                    ]
+                },
+                {
+                    "name": "qt6-positioning",
+                    "buildsystem": "cmake-ninja",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.qt.io/official_releases/qt/6.4/6.4.0/submodules/qtpositioning-everywhere-src-6.4.0.tar.xz",
+                            "sha256": "2d1b5c5f6dab0108396fea37ca28ebfad21a48fa11d8c5d17622d6f6e5fba834"
+                        }
+                    ]
+                },
+                {
+                    "name": "qt6-serial",
+                    "buildsystem": "cmake-ninja",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.qt.io/official_releases/qt/6.4/6.4.0/submodules/qtserialport-everywhere-src-6.4.0.tar.xz",
+                            "sha256": "f148cc9e87ce2228e82bff7a64d9521339ece66c4c66aa43b91bac614f4a4483"
+                        }
+                    ]
+                },
+                {
+                    "name": "libglvnd",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://gitlab.freedesktop.org/glvnd/libglvnd/-/archive/v1.5.0/libglvnd-v1.5.0.tar.gz",
+                            "sha512": "e70f98b644e7afabba77890e46278503b60158bfa58283f31e0e686dd13eb6b159ffe8ac0d1b8d3deeabff9abc00a431970b77b9731ebcf9a224c2da379823cb"
+                        }
+                    ]
                 }
             ]
         }
