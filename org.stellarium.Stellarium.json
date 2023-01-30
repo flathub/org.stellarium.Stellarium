@@ -34,6 +34,10 @@
                     "url": "https://github.com/Stellarium/stellarium/releases/download/v0.22.2/stellarium-0.22.2.tar.gz",
                     "sha256": "31e965d32cafc0fbad212c7ef4efbeac988f909206013554e1fe35123ebb9376"
                 }
+            ],
+            "post-install": [
+                "sed -i -e '/icon name/s/stellarium/org.stellarium.Stellarium/' $FLATPAK_DEST/share/mime/packages/stellarium.xml",
+                "mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml"
             ]
         }
     ]
