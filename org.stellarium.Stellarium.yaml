@@ -1,0 +1,127 @@
+app-id: org.stellarium.Stellarium
+runtime: org.kde.Platform
+runtime-version: "6.4"
+sdk: org.kde.Sdk
+command: stellarium
+rename-icon: stellarium
+finish-args:
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --share=ipc
+  - --share=network
+  - --device=all
+  - --filesystem=home
+cleanup:
+  - "/include"
+  - "/lib/pkgconfig"
+  - "/share/man"
+  - "*.a"
+modules:
+  - name: glm
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/g-truc/glm/archive/efec5db081e3aad807d0731e172ac597f6a39447.zip
+        sha256: e7a1abc208278cc3f0dba59c5170d83863b3375f98136d588b8beb74825e503c
+  - name: eigen
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: archive
+        url: https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz
+        sha256: 8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72
+  - name: CalcMySky
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DQT_VERSION=6
+    sources:
+      - type: archive
+        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.0.tar.gz
+        sha256: f5ea2d3981de0d3e93a0d12b12bea9e9cfcf51b62336740be641f4ba74f98bdd
+  - "shared-modules/libusb/libusb.json"
+  - name: nova
+    buildsystem: simple
+    build-commands:
+      - "autoreconf -vif"
+      - "./configure --disable-static --prefix /app"
+      - "make all install PREFIX=/app"
+    sources:
+      - type: git
+        url: https://git.code.sf.net/p/libnova/libnova
+        tag: v0.16
+        commit: edbf65abe27ef1a2520eb9e839daaf58f15a6941
+  - name: gsl
+    sources:
+      - type: archive
+        url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
+        sha256: dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b
+  - name: cfitsio
+    sources:
+      - type: archive
+        url: http://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.0.0.tar.gz
+        sha256: b2a8efba0b9f86d3e1bd619f662a476ec18112b4f27cc441cc680a4e3777425e
+  - name: libev
+    config-opts:
+      - "--disable-static"
+      - "--with-pic"
+    sources:
+      - type: archive
+        url: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libev/1:4.33-1/libev_4.33.orig.tar.gz
+        sha256: 507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea
+  - name: indi
+    buildsystem: cmake-ninja
+    config-opts:
+      - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DCMAKE_INSTALL_PREFIX=/app"
+      - "-DUDEVRULES_INSTALL_DIR=/app/lib/udev/rules.d"
+      - "-DCMAKE_C_FLAGS=-ffat-lto-objects"
+      - "-DCMAKE_CXX_FLAGS=-ffat-lto-objects -Wp,-U_GLIBCXX_ASSERTIONS"
+    sources:
+      - type: archive
+        url: https://github.com/indilib/indi/archive/v1.9.9.tar.gz
+        sha256: 9859b22b67a368075552aef2f9cb2de9bef6da243bbcc570b3926d871d02a1bc
+  - name: qxlsxqt
+    buildsystem: cmake-ninja
+    subdir: "QXlsx/"
+    config-opts:
+      - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DCMAKE_INSTALL_PREFIX=/app"
+      - "-DCMAKE_INSTALL_LIBDIR=lib"
+    post-install:
+      - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
+    sources:
+      - type: archive
+        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.6.tar.gz
+        sha256: 969a947af6a78dad9f2418dfc84e528d212ceb98e6392edf859dbff4f8828a77
+  # - name: gpsd
+  #   build-commands:
+  #     - "scons install"
+  #   sources:
+  #     - type: archive
+  #       url: https://gitlab.com/gpsd/gpsd/-/archive/release-3.25/gpsd-release-3.25.tar.gz
+  #       sha256: c87b41d694d13fc64ecdad2723fcde4b2d3f661d37e039074469022c20c31b1e
+  - name: stellarium
+    buildsystem: cmake-ninja
+    config-opts:
+      - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DCPM_USE_LOCAL_PACKAGES=yes"
+      - "-DCMAKE_C_COMPILER=gcc"
+      - "-DCMAKE_CXX_STANDARD=17"
+      - "-DCMAKE_C_EXTENSIONS=No"
+      - "-DCMAKE_CXX_COMPILER=g++"
+      - "-DCMAKE_C_STANDARD=11"
+      - "-DCMAKE_CXX_EXTENSIONS=No"
+      - "-DENABLE_QT6=1"
+      - "-DENABLE_SHOWMYSKY=ON"
+      - "-DENABLE_TESTING=0"
+      - "-DENABLE_XLSX=1"
+      - "-DENABLE_GPS=0"
+      - "-DPREFER_SYSTEM_INDILIB=yes"
+      - "-DENABLE_MEDIA=1"
+    post-install:
+      - "sed -i 's/<url.*url>//mg' /app/share/metainfo/org.stellarium.Stellarium.appdata.xml"
+    sources:
+      - type: archive
+        url: https://github.com/Stellarium/stellarium/archive/refs/tags/v23.1.tar.gz
+        sha256: ce896ddf6f0b35d6bbf6cee122d8f0b5c7bca93fffa17c10f16c56a689a1850f
