@@ -126,7 +126,7 @@ modules:
       - "-DENABLE_MEDIA=1"
     post-install:
       # Correct donation url type
-      - sed -i 'sed -i 's/<url type="donate">/<url type="donation">/g'' /app/share/metainfo/org.stellarium.Stellarium.appdata.xml
+      - sed -i 's/<url type="donate">/<url type="donation">/g' /app/share/metainfo/org.stellarium.Stellarium.appdata.xml
       # Remove unsuppored url types
       - sed -i 's/<url +type="(?!homepage|bugtracker|faq|help|donation|translate|contact|contribute|vcs-browser)[^"]+">.*url>//g' /app/share/metainfo/org.stellarium.Stellarium.appdata.xml
     sources:
