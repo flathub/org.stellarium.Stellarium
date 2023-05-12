@@ -124,8 +124,8 @@ modules:
       - "-DENABLE_GPS=0"
       - "-DPREFER_SYSTEM_INDILIB=yes"
       - "-DENABLE_MEDIA=1"
-    # post-install:
-    # - "sed -i 's/<url.*url>//mg' /app/share/metainfo/org.stellarium.Stellarium.appdata.xml"
+    post-install:
+      - 'sed -i ''s/<url type="vcs-browser".*url>//g'' /app/share/metainfo/org.stellarium.Stellarium.appdata.xml'
     sources:
       - type: archive
         url: https://github.com/Stellarium/stellarium/archive/refs/tags/v23.1.tar.gz
