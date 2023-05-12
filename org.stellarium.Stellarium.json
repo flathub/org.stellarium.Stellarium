@@ -11,7 +11,8 @@
         "--share=network",
         "--device=dri",
         "--socket=pulseaudio",
-        "--filesystem=home"
+        "--filesystem=~/.stellarium:create",
+        "--filesystem=xdg-pictures"
     ],
     "cleanup": [
         "/include",
