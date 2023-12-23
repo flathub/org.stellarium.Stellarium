@@ -99,6 +99,13 @@ modules:
       - type: archive
         url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.6.tar.gz
         sha256: 969a947af6a78dad9f2418dfc84e528d212ceb98e6392edf859dbff4f8828a77
+  - name: NLopt
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: archive
+        url: https://github.com/stevengj/nlopt/archive/refs/tags/v2.7.1.tar.gz
+        sha256: db88232fa5cef0ff6e39943fc63ab6074208831dc0031cf1545f6ecd31ae2a1a
   # - name: gpsd
   #   build-commands:
   #     - "scons install"
