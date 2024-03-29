@@ -42,8 +42,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.1.tar.gz
-        sha256: d284eaabcf21ad3d1f520a1d1b1b533f7c5f5a44ba92495dd38e238874e8e4d7
+        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.2.tar.gz
+        sha256: 680afed66bc9a2fb94b502da649d0d32fad9d91e3ccbab49a86f7d303e72efc6
   - "shared-modules/libusb/libusb.json"
   - name: nova
     buildsystem: simple
@@ -97,8 +97,8 @@ modules:
       - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
     sources:
       - type: archive
-        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.6.tar.gz
-        sha256: 969a947af6a78dad9f2418dfc84e528d212ceb98e6392edf859dbff4f8828a77
+        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.7.tar.gz
+        sha256: 6f2de3e3bcfd09b7be0f9ad06c363cfe29a7a4c14280b36a91d8968f54be796a
   - name: NLopt
     buildsystem: cmake-ninja
     builddir: true
@@ -141,5 +141,5 @@ modules:
       - mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml
     sources:
       - type: archive
-        url: https://github.com/Stellarium/stellarium/releases/download/v23.4/stellarium-23.4.tar.gz
-        sha256: db4db9f205cc13fb68e3f3c4c895754d16868e4d25a14da44db6d0d809e39943
+        url: https://github.com/Stellarium/stellarium/releases/download/v24.1/stellarium-24.1.tar.gz
+        sha256: 5a48fb2c5b17c9ebfa23153604f470dc87a5eab5fafb0510f71e115ac76072a8
