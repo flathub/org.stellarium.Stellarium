@@ -93,8 +93,8 @@ modules:
       - "-DCMAKE_BUILD_TYPE=Release"
       - "-DCMAKE_INSTALL_PREFIX=/app"
       - "-DCMAKE_INSTALL_LIBDIR=lib"
-    post-install:
-      - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
+   # post-install:
+   #   - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
     sources:
       - type: archive
         url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.7.tar.gz
