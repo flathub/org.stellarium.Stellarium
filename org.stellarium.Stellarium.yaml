@@ -64,7 +64,7 @@ modules:
   - name: cfitsio
     sources:
       - type: archive
-        url: http://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.0.0.tar.gz
+        url: https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.0.0.tar.gz
         sha256: b2a8efba0b9f86d3e1bd619f662a476ec18112b4f27cc441cc680a4e3777425e
   - name: libev
     config-opts:
