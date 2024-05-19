@@ -44,23 +44,23 @@ modules:
       - type: archive
         url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.2.tar.gz
         sha256: 680afed66bc9a2fb94b502da649d0d32fad9d91e3ccbab49a86f7d303e72efc6
-  - "shared-modules/libusb/libusb.json"
-  - name: nova
-    buildsystem: simple
-    build-commands:
-      - "autoreconf -vif"
-      - "./configure --disable-static --prefix /app"
-      - "make all install PREFIX=/app"
-    sources:
-      - type: git
-        url: https://git.code.sf.net/p/libnova/libnova
-        tag: v0.16
-        commit: edbf65abe27ef1a2520eb9e839daaf58f15a6941
-#  - name: gsl
+#  - "shared-modules/libusb/libusb.json"
+#  - name: nova
+#    buildsystem: simple
+#    build-commands:
+#      - "autoreconf -vif"
+#      - "./configure --disable-static --prefix /app"
+#      - "make all install PREFIX=/app"
 #    sources:
-#      - type: archive
-#        url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
-#        sha256: dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b
+#      - type: git
+#        url: https://git.code.sf.net/p/libnova/libnova
+#        tag: v0.16
+#        commit: edbf65abe27ef1a2520eb9e839daaf58f15a6941
+  - name: gsl
+    sources:
+      - type: archive
+        url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
+        sha256: dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b
 #  - name: cfitsio
 #    sources:
 #      - type: archive
@@ -70,22 +70,22 @@ modules:
 #    config-opts:
 #      - "--disable-static"
 #      - "--with-pic"
-    sources:
-      - type: archive
-        url: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libev/1:4.33-1/libev_4.33.orig.tar.gz
-        sha256: 507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea
-  - name: indi
-    buildsystem: cmake-ninja
-    config-opts:
-      - "-DCMAKE_BUILD_TYPE=Release"
-      - "-DCMAKE_INSTALL_PREFIX=/app"
-      - "-DUDEVRULES_INSTALL_DIR=/app/lib/udev/rules.d"
-      - "-DCMAKE_C_FLAGS=-ffat-lto-objects"
-      - "-DCMAKE_CXX_FLAGS=-ffat-lto-objects -Wp,-U_GLIBCXX_ASSERTIONS"
-    sources:
-      - type: archive
-        url: https://github.com/indilib/indi/archive/v1.9.9.tar.gz
-        sha256: 9859b22b67a368075552aef2f9cb2de9bef6da243bbcc570b3926d871d02a1bc
+#    sources:
+#      - type: archive
+#        url: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libev/1:4.33-1/libev_4.33.orig.tar.gz
+#        sha256: 507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea
+#  - name: indi
+#    buildsystem: cmake-ninja
+#    config-opts:
+#      - "-DCMAKE_BUILD_TYPE=Release"
+#      - "-DCMAKE_INSTALL_PREFIX=/app"
+#      - "-DUDEVRULES_INSTALL_DIR=/app/lib/udev/rules.d"
+#      - "-DCMAKE_C_FLAGS=-ffat-lto-objects"
+#      - "-DCMAKE_CXX_FLAGS=-ffat-lto-objects -Wp,-U_GLIBCXX_ASSERTIONS"
+#    sources:
+#      - type: archive
+#        url: https://github.com/indilib/indi/archive/v1.9.9.tar.gz
+#        sha256: 9859b22b67a368075552aef2f9cb2de9bef6da243bbcc570b3926d871d02a1bc
   - name: qxlsxqt
     buildsystem: cmake-ninja
     subdir: "QXlsx/"
@@ -99,13 +99,13 @@ modules:
       - type: archive
         url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.7.tar.gz
         sha256: 6f2de3e3bcfd09b7be0f9ad06c363cfe29a7a4c14280b36a91d8968f54be796a
-  # - name: NLopt
-  #   buildsystem: cmake-ninja
-  #   builddir: true
-  #   sources:
-  #     - type: archive
-  #       url: https://github.com/stevengj/nlopt/archive/refs/tags/v2.7.1.tar.gz
-  #       sha256: db88232fa5cef0ff6e39943fc63ab6074208831dc0031cf1545f6ecd31ae2a1a
+   - name: NLopt
+     buildsystem: cmake-ninja
+     builddir: true
+     sources:
+       - type: archive
+         url: https://github.com/stevengj/nlopt/archive/refs/tags/v2.7.1.tar.gz
+         sha256: db88232fa5cef0ff6e39943fc63ab6074208831dc0031cf1545f6ecd31ae2a1a
   # - name: gpsd
   #   build-commands:
   #     - "scons install"
@@ -129,9 +129,9 @@ modules:
       - "-DENABLE_TESTING=0"
       - "-DENABLE_XLSX=1"
       - "-DENABLE_GPS=0"
-      - "-DPREFER_SYSTEM_INDILIB=yes"
+#      - "-DPREFER_SYSTEM_INDILIB=yes"
       - "-DENABLE_MEDIA=1"
-      - "-DUSE_PLUGIN_LENSDISTORTIONESTIMATOR=0"
+      - "-DUSE_PLUGIN_TELESCOPECONTROL=0"
     post-install:
       # Correct donation url type
       - sed -i 's/<url type="donate">/<url type="donation">/g' $FLATPAK_DEST/share/metainfo/org.stellarium.Stellarium.appdata.xml
