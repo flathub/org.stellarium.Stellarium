@@ -1,6 +1,6 @@
 app-id: org.stellarium.Stellarium
 runtime: org.kde.Platform
-runtime-version: "6.7"
+runtime-version: "6.6"
 sdk: org.kde.Sdk
 command: stellarium
 rename-icon: stellarium
@@ -64,8 +64,8 @@ modules:
   - name: cfitsio
     sources:
       - type: archive
-        url: https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.0.0.tar.gz
-        sha256: 88735b69bb017ee92823b9e7ee14efeae2e57fb6c00503ed3aa2820e850a7b5e
+        url: https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.4.0.tar.gz
+        sha256: c42bd609151c0b0d7c4f3578d425ae7aaa9afa4828cab35c0accea588e290c29
   - name: libev
     config-opts:
       - "--disable-static"
