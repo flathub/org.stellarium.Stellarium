@@ -1,6 +1,6 @@
 app-id: org.stellarium.Stellarium
 runtime: org.kde.Platform
-runtime-version: "6.5"
+runtime-version: "6.6"
 sdk: org.kde.Sdk
 command: stellarium
 rename-icon: stellarium
@@ -44,48 +44,48 @@ modules:
       - type: archive
         url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.2.tar.gz
         sha256: 680afed66bc9a2fb94b502da649d0d32fad9d91e3ccbab49a86f7d303e72efc6
-  - "shared-modules/libusb/libusb.json"
-  - name: nova
-    buildsystem: simple
-    build-commands:
-      - "autoreconf -vif"
-      - "./configure --disable-static --prefix /app"
-      - "make all install PREFIX=/app"
-    sources:
-      - type: git
-        url: https://git.code.sf.net/p/libnova/libnova
-        tag: v0.16
-        commit: edbf65abe27ef1a2520eb9e839daaf58f15a6941
+#  - "shared-modules/libusb/libusb.json"
+#  - name: nova
+#    buildsystem: simple
+#    build-commands:
+#      - "autoreconf -vif"
+#      - "./configure --disable-static --prefix /app"
+#      - "make all install PREFIX=/app"
+#    sources:
+#      - type: git
+#        url: https://git.code.sf.net/p/libnova/libnova
+#        tag: v0.16
+#        commit: edbf65abe27ef1a2520eb9e839daaf58f15a6941
   - name: gsl
     sources:
       - type: archive
         url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
         sha256: dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b
-  - name: cfitsio
-    sources:
-      - type: archive
-        url: http://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.0.0.tar.gz
-        sha256: b2a8efba0b9f86d3e1bd619f662a476ec18112b4f27cc441cc680a4e3777425e
-  - name: libev
-    config-opts:
-      - "--disable-static"
-      - "--with-pic"
-    sources:
-      - type: archive
-        url: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libev/1:4.33-1/libev_4.33.orig.tar.gz
-        sha256: 507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea
-  - name: indi
-    buildsystem: cmake-ninja
-    config-opts:
-      - "-DCMAKE_BUILD_TYPE=Release"
-      - "-DCMAKE_INSTALL_PREFIX=/app"
-      - "-DUDEVRULES_INSTALL_DIR=/app/lib/udev/rules.d"
-      - "-DCMAKE_C_FLAGS=-ffat-lto-objects"
-      - "-DCMAKE_CXX_FLAGS=-ffat-lto-objects -Wp,-U_GLIBCXX_ASSERTIONS"
-    sources:
-      - type: archive
-        url: https://github.com/indilib/indi/archive/v1.9.9.tar.gz
-        sha256: 9859b22b67a368075552aef2f9cb2de9bef6da243bbcc570b3926d871d02a1bc
+#  - name: cfitsio
+#    sources:
+#      - type: archive
+#        url: https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.4.0.tar.gz
+#        sha256: c42bd609151c0b0d7c4f3578d425ae7aaa9afa4828cab35c0accea588e290c29
+#  - name: libev
+#    config-opts:
+#      - "--disable-static"
+#      - "--with-pic"
+#    sources:
+#      - type: archive
+#        url: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libev/1:4.33-1/libev_4.33.orig.tar.gz
+#        sha256: 507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea
+#  - name: indi
+#    buildsystem: cmake-ninja
+#    config-opts:
+#      - "-DCMAKE_BUILD_TYPE=Release"
+#      - "-DCMAKE_INSTALL_PREFIX=/app"
+#      - "-DUDEVRULES_INSTALL_DIR=/app/lib/udev/rules.d"
+#      - "-DCMAKE_C_FLAGS=-ffat-lto-objects"
+#      - "-DCMAKE_CXX_FLAGS=-ffat-lto-objects -Wp,-U_GLIBCXX_ASSERTIONS"
+#    sources:
+#      - type: archive
+#        url: https://github.com/indilib/indi/archive/v1.9.9.tar.gz
+#        sha256: 9859b22b67a368075552aef2f9cb2de9bef6da243bbcc570b3926d871d02a1bc
   - name: qxlsxqt
     buildsystem: cmake-ninja
     subdir: "QXlsx/"
@@ -129,8 +129,9 @@ modules:
       - "-DENABLE_TESTING=0"
       - "-DENABLE_XLSX=1"
       - "-DENABLE_GPS=0"
-      - "-DPREFER_SYSTEM_INDILIB=yes"
+#      - "-DPREFER_SYSTEM_INDILIB=yes"
       - "-DENABLE_MEDIA=1"
+      - "-DUSE_PLUGIN_TELESCOPECONTROL=0"
     post-install:
       # Correct donation url type
       - sed -i 's/<url type="donate">/<url type="donation">/g' $FLATPAK_DEST/share/metainfo/org.stellarium.Stellarium.appdata.xml
