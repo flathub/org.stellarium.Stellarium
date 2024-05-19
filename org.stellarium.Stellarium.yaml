@@ -70,10 +70,10 @@ modules:
 #    config-opts:
 #      - "--disable-static"
 #      - "--with-pic"
-#    sources:
-#      - type: archive
-#        url: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libev/1:4.33-1/libev_4.33.orig.tar.gz
-#        sha256: 507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea
+    sources:
+      - type: archive
+        url: https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libev/1:4.33-1/libev_4.33.orig.tar.gz
+        sha256: 507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea
   - name: indi
     buildsystem: cmake-ninja
     config-opts:
