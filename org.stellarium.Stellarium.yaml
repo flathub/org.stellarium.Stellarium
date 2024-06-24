@@ -97,8 +97,8 @@ modules:
    #   - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
     sources:
       - type: archive
-        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.7.tar.gz
-        sha256: 6f2de3e3bcfd09b7be0f9ad06c363cfe29a7a4c14280b36a91d8968f54be796a
+        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.8.tar.gz
+        sha256: 5b2a5aad08f07e6b099d934c4c4f75bcd83a0421538aec1e8582d8c8596b0956
   - name: NLopt
     buildsystem: cmake-ninja
     builddir: true
@@ -142,5 +142,5 @@ modules:
       - mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml
     sources:
       - type: archive
-        url: https://github.com/Stellarium/stellarium/releases/download/v24.1/stellarium-24.1.tar.gz
-        sha256: 5a48fb2c5b17c9ebfa23153604f470dc87a5eab5fafb0510f71e115ac76072a8
+        url: https://github.com/Stellarium/stellarium/releases/download/v24.2/stellarium-24.2.tar.gz
+        sha256: e6d8ee0792b7f77486b700d4669d0dd0c349319f379758ad643d76165d1d56d2
