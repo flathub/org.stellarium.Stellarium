@@ -42,8 +42,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.2.tar.gz
-        sha256: 680afed66bc9a2fb94b502da649d0d32fad9d91e3ccbab49a86f7d303e72efc6
+        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.3.tar.gz
+        sha256: 21cce3187009ce62a4a08a72b4e22ae7bc00654edfbc7fa9fe8ab65b412791df
 #  - "shared-modules/libusb/libusb.json"
 #  - name: nova
 #    buildsystem: simple
@@ -142,5 +142,5 @@ modules:
       - mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml
     sources:
       - type: archive
-        url: https://github.com/Stellarium/stellarium/releases/download/v24.2/stellarium-24.2.tar.gz
-        sha256: e6d8ee0792b7f77486b700d4669d0dd0c349319f379758ad643d76165d1d56d2
+        url: https://github.com/Stellarium/stellarium/releases/download/v24.3/stellarium-24.3.tar.gz
+        sha256: c3ffb56a049061c7754bafab176146a2c4474ecede108d650f3c7551e1eae50a
