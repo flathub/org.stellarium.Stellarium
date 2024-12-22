@@ -142,5 +142,5 @@ modules:
       - mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml
     sources:
       - type: archive
-        url: https://github.com/Stellarium/stellarium/releases/download/v24.3/stellarium-24.3.tar.gz
-        sha256: c3ffb56a049061c7754bafab176146a2c4474ecede108d650f3c7551e1eae50a
+        url: https://github.com/Stellarium/stellarium/releases/download/v24.4/stellarium-24.4.tar.gz
+        sha256: 433bb8a0380313e6d9e4caf62395b724f4d74262c8aae426a0fe1a5e61a29cbb
