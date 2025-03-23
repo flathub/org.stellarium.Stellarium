@@ -56,15 +56,6 @@ modules:
 #        url: https://git.code.sf.net/p/libnova/libnova
 #        tag: v0.16
 #        commit: edbf65abe27ef1a2520eb9e839daaf58f15a6941
-  - name: md4c
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DBUILD_MD2HTML_EXECUTABLE=Off
-    sources:
-      - type: archive
-        url: https://github.com/mity/md4c/archive/refs/tags/release-0.4.8.tar.gz
-        sha256: 4a457df853425b6bb6e3457aa1d1a13bccec587a04c38c622b1013a0da41439f
   - name: gsl
     sources:
       - type: archive
@@ -115,6 +106,13 @@ modules:
       - type: archive
         url: https://github.com/stevengj/nlopt/archive/refs/tags/v2.7.1.tar.gz
         sha256: db88232fa5cef0ff6e39943fc63ab6074208831dc0031cf1545f6ecd31ae2a1a
+  - name: md4c
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: archive
+        url: https://github.com/mity/md4c/archive/refs/tags/release-0.4.8.tar.gz
+        sha256: 4a457df853425b6bb6e3457aa1d1a13bccec587a04c38c622b1013a0da41439f  
   # - name: gpsd
   #   build-commands:
   #     - "scons install"
