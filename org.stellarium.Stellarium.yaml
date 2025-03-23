@@ -57,6 +57,9 @@ modules:
 #        tag: v0.16
 #        commit: edbf65abe27ef1a2520eb9e839daaf58f15a6941
   - name: md4c
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DBUILD_MD2HTML_EXECUTABLE=Off
     sources:
       - type: archive
         url: https://github.com/mity/md4c/archive/refs/tags/release-0.4.8.tar.gz
