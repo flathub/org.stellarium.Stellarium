@@ -42,8 +42,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.3.tar.gz
-        sha256: 21cce3187009ce62a4a08a72b4e22ae7bc00654edfbc7fa9fe8ab65b412791df
+        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.4.tar.gz
+        sha256: 29ef4c81cf020e131ec79a28c78946d80d422d05818197079cbaa6353ffba16a
 #  - "shared-modules/libusb/libusb.json"
 #  - name: nova
 #    buildsystem: simple
@@ -97,8 +97,16 @@ modules:
    #   - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
     sources:
       - type: archive
-        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.8.tar.gz
-        sha256: 5b2a5aad08f07e6b099d934c4c4f75bcd83a0421538aec1e8582d8c8596b0956
+        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.5.0.tar.gz
+        sha256: 4461bb0fc9b88b6a970520e8b32eb7d2fc391a1a5c326b139a0af836278cdb09
+  - name: md4c
+    buildsystem: cmake-ninja
+    config-opts:
+      - "-DBUILD_MD2HTML_EXECUTABLE=Off"
+    sources:
+      - type: archive
+        url: https://github.com/mity/md4c/archive/refs/tags/release-0.4.8.tar.gz
+        sha256: 4a457df853425b6bb6e3457aa1d1a13bccec587a04c38c622b1013a0da41439f
   - name: NLopt
     buildsystem: cmake-ninja
     builddir: true
@@ -142,5 +150,5 @@ modules:
       - mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml
     sources:
       - type: archive
-        url: https://github.com/Stellarium/stellarium/releases/download/v24.4/stellarium-24.4.tar.gz
-        sha256: 433bb8a0380313e6d9e4caf62395b724f4d74262c8aae426a0fe1a5e61a29cbb
+        url: https://github.com/Stellarium/stellarium/archive/e9c3ed21a0a5837a0212b54803fccbb427a9654a.zip
+        sha256: 118f5eb5995e37ec55aff0fb16b8132a1616d71c95f37901d045eab3dcb791ee
