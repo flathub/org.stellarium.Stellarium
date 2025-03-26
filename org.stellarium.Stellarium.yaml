@@ -42,8 +42,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.3.tar.gz
-        sha256: 21cce3187009ce62a4a08a72b4e22ae7bc00654edfbc7fa9fe8ab65b412791df
+        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.4.tar.gz
+        sha256: 29ef4c81cf020e131ec79a28c78946d80d422d05818197079cbaa6353ffba16a
 #  - "shared-modules/libusb/libusb.json"
 #  - name: nova
 #    buildsystem: simple
@@ -97,8 +97,8 @@ modules:
    #   - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
     sources:
       - type: archive
-        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.4.8.tar.gz
-        sha256: 5b2a5aad08f07e6b099d934c4c4f75bcd83a0421538aec1e8582d8c8596b0956
+        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.5.0.tar.gz
+        sha256: 4461bb0fc9b88b6a970520e8b32eb7d2fc391a1a5c326b139a0af836278cdb09
   - name: md4c
     buildsystem: cmake-ninja
     config-opts:
