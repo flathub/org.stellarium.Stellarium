@@ -1,6 +1,6 @@
 app-id: org.stellarium.Stellarium
 runtime: org.kde.Platform
-runtime-version: "6.8"
+runtime-version: '6.9'
 sdk: org.kde.Sdk
 command: stellarium
 rename-icon: stellarium
@@ -13,17 +13,21 @@ finish-args:
   - --device=all
   - --filesystem=home
 cleanup:
-  - "/include"
-  - "/lib/pkgconfig"
-  - "/share/man"
-  - "*.a"
+  - /include
+  - /lib/pkgconfig
+  - /share/man
+  - '*.a'
 modules:
   - name: glm
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/g-truc/glm/archive/efec5db081e3aad807d0731e172ac597f6a39447.zip
-        sha256: e7a1abc208278cc3f0dba59c5170d83863b3375f98136d588b8beb74825e503c
+        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.1.tar.gz
+        sha256: 9f3174561fd26904b23f0db5e560971cbf9b3cbda0b280f04d5c379d03bf234c
+        x-checker-data:
+          type: anitya
+          project-id: 1181
+          url-template: https://github.com/g-truc/glm/archive/refs/tags/$version.tar.gz
   - name: eigen
     buildsystem: cmake-ninja
     builddir: true
@@ -31,6 +35,10 @@ modules:
       - type: archive
         url: https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz
         sha256: 8586084f71f9bde545ee7fa6d00288b264a2b7ac3607b974e54d13e7162c1c72
+        x-checker-data:
+          type: anitya
+          project-id: 13751
+          url-template: https://gitlab.com/libeigen/eigen/-/archive/$version/eigen-$version.tar.gz
   - name: CalcMySky
     buildsystem: cmake-ninja
     config-opts:
@@ -44,6 +52,10 @@ modules:
       - type: archive
         url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.5.tar.gz
         sha256: d49eab6bc70a2c82bf294dd8ace9ef2fc6df0afbb72ba493bb6d3f1f8cd8829d
+        x-checker-data:
+          type: anitya
+          project-id: 301817
+          url-template: https://github.com/10110111/CalcMySky/archive/refs/tags/v$version.tar.gz
 #  - "shared-modules/libusb/libusb.json"
 #  - name: nova
 #    buildsystem: simple
@@ -61,6 +73,10 @@ modules:
       - type: archive
         url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
         sha256: dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b
+        x-checker-data:
+          type: anitya
+          project-id: 1267
+          url-template: https://ftp.gnu.org/gnu/gsl/gsl-$version.tar.gz
 #  - name: cfitsio
 #    sources:
 #      - type: archive
@@ -88,32 +104,44 @@ modules:
 #        sha256: 9859b22b67a368075552aef2f9cb2de9bef6da243bbcc570b3926d871d02a1bc
   - name: qxlsxqt
     buildsystem: cmake-ninja
-    subdir: "QXlsx/"
+    subdir: QXlsx/
     config-opts:
-      - "-DCMAKE_BUILD_TYPE=Release"
-      - "-DCMAKE_INSTALL_PREFIX=/app"
-      - "-DCMAKE_INSTALL_LIBDIR=lib"
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_INSTALL_PREFIX=/app
+      - -DCMAKE_INSTALL_LIBDIR=lib
    # post-install:
    #   - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
     sources:
       - type: archive
         url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.5.0.tar.gz
         sha256: 4461bb0fc9b88b6a970520e8b32eb7d2fc391a1a5c326b139a0af836278cdb09
+        x-checker-data:
+          type: anitya
+          project-id: 301836
+          url-template: https://github.com/QtExcel/QXlsx/archive/refs/tags/v$version.tar.gz
   - name: md4c
     buildsystem: cmake-ninja
     config-opts:
-      - "-DBUILD_MD2HTML_EXECUTABLE=Off"
+      - -DBUILD_MD2HTML_EXECUTABLE=Off
     sources:
       - type: archive
-        url: https://github.com/mity/md4c/archive/refs/tags/release-0.4.8.tar.gz
-        sha256: 4a457df853425b6bb6e3457aa1d1a13bccec587a04c38c622b1013a0da41439f
+        url: https://github.com/mity/md4c/archive/refs/tags/release-0.5.2.tar.gz
+        sha256: 55d0111d48fb11883aaee91465e642b8b640775a4d6993c2d0e7a8092758ef21
+        x-checker-data:
+          type: anitya
+          project-id: 371144
+          url-template: https://github.com/mity/md4c/archive/refs/tags/release-$version.tar.gz
   - name: NLopt
     buildsystem: cmake-ninja
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/stevengj/nlopt/archive/refs/tags/v2.7.1.tar.gz
-        sha256: db88232fa5cef0ff6e39943fc63ab6074208831dc0031cf1545f6ecd31ae2a1a
+        url: https://github.com/stevengj/nlopt/archive/refs/tags/v2.10.0.tar.gz
+        sha256: 506f83a9e778ad4f204446e99509cb2bdf5539de8beccc260a014bd560237be1
+        x-checker-data:
+          type: anitya
+          project-id: 2095
+          url-template: https://github.com/stevengj/nlopt/archive/refs/tags/v$version.tar.gz
   # - name: gpsd
   #   build-commands:
   #     - "scons install"
@@ -124,27 +152,28 @@ modules:
   - name: stellarium
     buildsystem: cmake-ninja
     config-opts:
-      - "-DCMAKE_BUILD_TYPE=Release"
-      - "-DCPM_USE_LOCAL_PACKAGES=yes"
-      - "-DCMAKE_C_COMPILER=gcc"
-      - "-DCMAKE_CXX_STANDARD=17"
-      - "-DCMAKE_C_EXTENSIONS=No"
-      - "-DCMAKE_CXX_COMPILER=g++"
-      - "-DCMAKE_C_STANDARD=11"
-      - "-DCMAKE_CXX_EXTENSIONS=No"
-      - "-DENABLE_QT6=1"
-      - "-DENABLE_SHOWMYSKY=ON"
-      - "-DENABLE_TESTING=0"
-      - "-DENABLE_XLSX=1"
-      - "-DENABLE_GPS=0"
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCPM_USE_LOCAL_PACKAGES=yes
+      - -DCMAKE_C_COMPILER=gcc
+      - -DCMAKE_CXX_STANDARD=17
+      - -DCMAKE_C_EXTENSIONS=No
+      - -DCMAKE_CXX_COMPILER=g++
+      - -DCMAKE_C_STANDARD=11
+      - -DCMAKE_CXX_EXTENSIONS=No
+      - -DENABLE_QT6=1
+      - -DENABLE_SHOWMYSKY=ON
+      - -DENABLE_TESTING=0
+      - -DENABLE_XLSX=1
+      - -DENABLE_GPS=0
 #      - "-DPREFER_SYSTEM_INDILIB=yes"
-      - "-DENABLE_MEDIA=1"
-      - "-DUSE_PLUGIN_TELESCOPECONTROL=0"
+      - -DENABLE_MEDIA=1
+      - -DUSE_PLUGIN_TELESCOPECONTROL=0
     post-install:
       # Correct donation url type
       - sed -i 's/<url type="donate">/<url type="donation">/g' $FLATPAK_DEST/share/metainfo/org.stellarium.Stellarium.appdata.xml
       # Remove unsuppored url types
-      - sed -i 's/<url +type="(?!homepage|bugtracker|faq|help|donation|translate|contact|contribute|vcs-browser)[^"]+">.*url>//g' $FLATPAK_DEST/share/metainfo/org.stellarium.Stellarium.appdata.xml
+      - sed -i 's/<url +type="(?!homepage|bugtracker|faq|help|donation|translate|contact|contribute|vcs-browser)[^"]+">.*url>//g'
+        $FLATPAK_DEST/share/metainfo/org.stellarium.Stellarium.appdata.xml
       # Export mime file, based on yselkowitz pull
       - sed -i -e '/icon name/s/stellarium/org.stellarium.Stellarium/' $FLATPAK_DEST/share/mime/packages/stellarium.xml
       - mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml
@@ -152,3 +181,7 @@ modules:
       - type: archive
         url: https://github.com/Stellarium/stellarium/releases/download/v25.2/stellarium-25.2.tar.gz
         sha256: afb43e95438aef5509afd6ba197daf30b52607cac16888332d9810ba12209486
+        x-checker-data:
+          type: anitya
+          project-id: 4891
+          url-template: https://github.com/Stellarium/stellarium/releases/download/v$version/stellarium-$version.tar.gz
