@@ -50,8 +50,8 @@ modules:
       - -Wno-dev
     sources:
       - type: archive
-        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.3.5.tar.gz
-        sha256: d49eab6bc70a2c82bf294dd8ace9ef2fc6df0afbb72ba493bb6d3f1f8cd8829d
+        url: https://github.com/10110111/CalcMySky/archive/refs/tags/v0.4.0.tar.gz
+        sha256: 1096f3c6067e05dd8c4df601b745cca5e88b843ad1328938e5dba69c1fcfb84f
         x-checker-data:
           type: anitya
           project-id: 301817
@@ -179,8 +179,8 @@ modules:
       - mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml
     sources:
       - type: archive
-        url: https://github.com/Stellarium/stellarium/releases/download/v25.3/stellarium-25.3.tar.gz
-        sha256: 5a229d1d0cc12d15d2a9a17fd53f52be819268a929cbaeb9077c1d8840082cda
+        url: https://github.com/Stellarium/stellarium/releases/download/v25.4/stellarium-25.4.tar.gz
+        sha256: 43818763fa829b0b35058122247e7e5e450eae8256207f2191b95961ddce9080
         x-checker-data:
           type: anitya
           project-id: 4891
