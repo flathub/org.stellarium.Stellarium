@@ -113,8 +113,8 @@ modules:
    #   - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
     sources:
       - type: archive
-        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.5.0.tar.gz
-        sha256: 4461bb0fc9b88b6a970520e8b32eb7d2fc391a1a5c326b139a0af836278cdb09
+        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.5.1.tar.gz
+        sha256: de04e8b5ce17a207c10f70111d482375d3b3f86b6ab88e2b39cc4fcb1ef91e2f
         x-checker-data:
           type: anitya
           project-id: 301836
@@ -136,8 +136,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://github.com/stevengj/nlopt/archive/refs/tags/v2.10.1.tar.gz
-        sha256: 30d13ce16da119db3e987784f7864e35a562ec62c186352fae55cd003e6c58ff
+        url: https://github.com/stevengj/nlopt/archive/refs/tags/v2.11.0.tar.gz
+        sha256: 53e552d83e9294d67db37f0f4a23f15933a9ef698485301a18b98b40004cf0de
         x-checker-data:
           type: anitya
           project-id: 2095
