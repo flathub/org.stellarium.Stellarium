@@ -1,6 +1,6 @@
 app-id: org.stellarium.Stellarium
 runtime: org.kde.Platform
-runtime-version: '6.9'
+runtime-version: '6.11'
 sdk: org.kde.Sdk
 command: stellarium
 rename-icon: stellarium
@@ -102,23 +102,23 @@ modules:
 #      - type: archive
 #        url: https://github.com/indilib/indi/archive/v1.9.9.tar.gz
 #        sha256: 9859b22b67a368075552aef2f9cb2de9bef6da243bbcc570b3926d871d02a1bc
-  - name: qxlsxqt
-    buildsystem: cmake-ninja
-    subdir: QXlsx/
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DCMAKE_INSTALL_PREFIX=/app
-      - -DCMAKE_INSTALL_LIBDIR=lib
+# - name: qxlsxqt
+#   buildsystem: cmake-ninja
+#   subdir: QXlsx/
+#   config-opts:
+#     - -DCMAKE_BUILD_TYPE=Release
+#    - -DCMAKE_INSTALL_PREFIX=/app
+#     - -DCMAKE_INSTALL_LIBDIR=lib
    # post-install:
    #   - "mv /app/include/QXlsxQt6 /app/include/QXlsx"
-    sources:
-      - type: archive
-        url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.5.0.tar.gz
-        sha256: 4461bb0fc9b88b6a970520e8b32eb7d2fc391a1a5c326b139a0af836278cdb09
-        x-checker-data:
-          type: anitya
-          project-id: 301836
-          url-template: https://github.com/QtExcel/QXlsx/archive/refs/tags/v$version.tar.gz
+#   sources:
+#     - type: archive
+#       url: https://github.com/QtExcel/QXlsx/archive/refs/tags/v1.5.0.tar.gz
+#       sha256: 4461bb0fc9b88b6a970520e8b32eb7d2fc391a1a5c326b139a0af836278cdb09
+#       x-checker-data:
+#         type: anitya
+#         project-id: 301836
+#         url-template: https://github.com/QtExcel/QXlsx/archive/refs/tags/v$version.tar.gz
   - name: md4c
     buildsystem: cmake-ninja
     config-opts:
@@ -163,7 +163,7 @@ modules:
       - -DENABLE_QT6=1
       - -DENABLE_SHOWMYSKY=ON
       - -DENABLE_TESTING=0
-      - -DENABLE_XLSX=1
+      - -DENABLE_XLSX=0
       - -DENABLE_GPS=0
 #      - "-DPREFER_SYSTEM_INDILIB=yes"
       - -DENABLE_MEDIA=1
