@@ -179,8 +179,8 @@ modules:
       - mv $FLATPAK_DEST/share/mime/packages/{stellarium,org.stellarium.Stellarium}.xml
     sources:
       - type: archive
-        url: https://github.com/Stellarium/stellarium/releases/download/v26.2/stellarium-26.2.tar.gz
-        sha256: a564cb133ab1b2ff7587ea8a9d5659433af0502743167eb354233fea2795188c
+        url: https://github.com/Stellarium/stellarium/releases/download/v26.3/stellarium-26.3.tar.gz
+        sha256: dc153809be4450e0da20099e68ec95d1b6e22f19b33cb0019588475e0d080585
         x-checker-data:
           type: anitya
           project-id: 4891
