@@ -130,7 +130,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 371144
-          url-template: https://github.com/mity/md4c/archive/refs/tags/release-$version.tar.gz
+          url-template: https://github.com/mity/md4c/archive/refs/tags/v$version.tar.gz
   - name: NLopt
     buildsystem: cmake-ninja
     builddir: true
